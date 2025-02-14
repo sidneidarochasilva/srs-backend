@@ -4,7 +4,6 @@ import { compare } from 'bcrypt';
 
 let createUserUseCase: CreateUserUseCase;
 let userRepositoryInMemory: UserRepositoryInMemory;
-
 describe('CreateUserUseCase', () => {
   beforeEach(() => {
     userRepositoryInMemory = new UserRepositoryInMemory();
@@ -37,7 +36,6 @@ describe('CreateUserUseCase', () => {
         userPasswordWithoutEncryption,
         user.password,
       );
-
       expect(userPasswordEncrypted).toBeTruthy();
     });
   });
