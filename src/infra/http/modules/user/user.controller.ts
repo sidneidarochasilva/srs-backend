@@ -23,6 +23,9 @@ export class UserController {
 
   @Get()
   async getUsers() {
+
+//const users = await this.createUserUseCase.getUsers();
+
     return {
       statusCode: 200,
       message: 'Users fetched',
