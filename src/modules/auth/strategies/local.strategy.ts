@@ -1,20 +1,19 @@
+import { ValidateUserUseCases } from './../validateUserUseCases/validateUserUseCases';
 
 import { Strategy } from 'passport-local';
 import { PassportStrategy } from '@nestjs/passport';
-import { Injectable, UnauthorizedException, Dependencies } from '@nestjs/common';
-
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
-//@Dependencies(AuthService)
 export class LocalStrategy extends PassportStrategy(Strategy) {
-  constructor() {
+  constructor(private ValidateUserUseCases: ValidateUserUseCases) {
     super({
-        usernameField: 'email',
-        passwordField: 'password',
+      usernameField: 'email',
+      passwordField: 'password',
     });
   }
 
   async validate(email: string, password: string) {
-   //TODO: Implement the validate method
+    return await this.ValidateUserUseCases.execute({ email, password });
   }
 }

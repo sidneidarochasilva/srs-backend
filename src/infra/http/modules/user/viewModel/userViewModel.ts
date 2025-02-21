@@ -1,5 +1,4 @@
-import { User } from 'src/modules/user/entities/User';
-
+import { User } from './../../../../../modules/user/entities/User';
 export class UserViewModel {
   static toHttp(user: User) {
     return {
